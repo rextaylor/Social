@@ -335,7 +335,12 @@ class Social {
 
 		foreach ($attributes as $k => $v)
 		{
-			$profile->$k = $v;
+			$profile_fields = $this->config['db']['profilesfields'];
+
+			if (in_array($k, $profile_fields))
+			{
+				$profile->$k = $v;
+			}
 		}
 
 		return $profile;
