@@ -12,7 +12,7 @@ if (Config::get('frozennode/social::routes.login'))
 		{
 			$app = app();
 
-			$profile = $app['frozennode.social']->attemptAuthentication($provider, $app['social']);
+			$profile = $app['frozennode.social']->attemptAuthentication($provider, $app['hybridauth']);
 
 			if ($profile)
 			{
