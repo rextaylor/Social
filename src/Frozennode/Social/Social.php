@@ -312,12 +312,10 @@ class Social {
 	protected function createProfileFromAdapterProfile($adapter_profile, $user)
 	{
 		$ProfileModel = $this->config['db']['profilemodel'];
-		$attributes['provider'] = $this->provider;
 
-		// @todo use config value for foreign key name
-		$attributes['user_id'] = $user->id;
-
-		$profile = new $ProfileModel($attributes);
+		$profile = new $ProfileModel();
+		$profile->user_id = $user->id;
+		$profile->user_id = $this->provider;
 		$profile = $this->applyAdapterProfileToExistingProfile($adapter_profile, $profile);
 
 		return $profile;
